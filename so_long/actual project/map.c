@@ -6,7 +6,7 @@
 /*   By: bexner <bexner@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 03:25:08 by bexner            #+#    #+#             */
-/*   Updated: 2022/02/23 00:44:48 by bexner           ###   ########.fr       */
+/*   Updated: 2022/03/27 00:18:51 by bexner           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ int	check_mewmap(t_data *mew)
 	if (wall_check(*mew) != 0)
 	{
 		write(1, "Error, Map is not surrounded by Walls.", 39);
-		return (0);
+		return (-1);
 	}
 	while (mew->y < mew->columns)
 	{
@@ -129,6 +129,6 @@ int	check_mewmap(t_data *mew)
 	}
 	if (mew->player_count != 1 || mew->collectible_count == 0 \
 	|| mew->exit_count == 0)
-		return (0);
+		return (-1);
 	return (mew->collectible_count);
 }

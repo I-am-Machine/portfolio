@@ -6,7 +6,7 @@
 /*   By: bexner <bexner@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 23:17:47 by bexner            #+#    #+#             */
-/*   Updated: 2022/02/23 00:44:09 by bexner           ###   ########.fr       */
+/*   Updated: 2022/03/27 18:05:09 by bexner           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ int	init_variables(t_data *mew, char **argv)
 	if (load_map(mew, argv) != 0)
 	{
 		write(1, "Error, Map could not be loaded.", 32);
-		return (1);
+		return (-1);
 	}
 	mew->collectible_count = check_mewmap(mew);
-	if (mew->collectible_count == 0)
-		return (1);
+	if (mew->collectible_count < 1)
+		return (-1);
 	return (0);
 }
 
@@ -84,7 +84,6 @@ void	create_mewmap_load_imgs(t_data mew)
 		mew.x = 0;
 		mew.y++;
 	}
-	return ;
 }
 
 int	main(int argc, char **argv)
@@ -93,10 +92,11 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		write(1, "Try Run ./so_long map.ber", 82);
-		return (0);
+		write(1, "Try Run ./so_long map.ber", 26);
+		return (-2);
 	}
-	init_variables(&mew, argv);
+	if (init_variables(&mew, argv) < 1)
+		return (-1);
 	mew.mlx = mlx_init();
 	mew.window = mlx_new_window(mew.mlx, mew.rows * 100, \
 	mew.columns * 100, "so_long");
