@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bexner <bexner@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: tgerdes <tgerdes@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 23:17:47 by bexner            #+#    #+#             */
-/*   Updated: 2022/03/27 18:05:09 by bexner           ###   ########.fr       */
+/*   Updated: 2022/03/27 18:37:37 by tgerdes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	init_variables(t_data *mew, char **argv)
 	mew->map = (char **)malloc((mew->columns + 1) * sizeof(char *));
 	if (load_map(mew, argv) != 0)
 	{
-		write(1, "Error, Map could not be loaded.", 32);
+		write(1, "Error, Map could not be loaded.\n", 33);
 		return (-1);
 	}
 	mew->collectible_count = check_mewmap(mew);
@@ -92,11 +92,14 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		write(1, "Try Run ./so_long map.ber", 26);
+		write(1, "Try Run ./so_long map.ber\n", 27);
 		return (-2);
 	}
-	if (init_variables(&mew, argv) < 1)
+	if (init_variables(&mew, argv) != 0)
+	{
+		write(1, "Try Run ./so_long map.ber2\n", 28);
 		return (-1);
+	}
 	mew.mlx = mlx_init();
 	mew.window = mlx_new_window(mew.mlx, mew.rows * 100, \
 	mew.columns * 100, "so_long");
