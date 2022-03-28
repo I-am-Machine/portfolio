@@ -6,7 +6,7 @@
 /*   By: bexner <bexner@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 00:46:01 by bexner            #+#    #+#             */
-/*   Updated: 2022/03/26 23:08:41 by bexner           ###   ########.fr       */
+/*   Updated: 2022/03/28 13:56:11 by bexner           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include "get_next_line.h"
 # include <stdio.h>
 
-// make sure you move W,A,S,D to move, check after it compiled
 # ifdef __linux__
 #  define UP 119
 #  define DOWN 115
@@ -33,11 +32,6 @@
 #  define RIGHT 100
 #  define LEFT 97
 #  define ESC 65307
-// #  define UP 13
-// #  define DOWN 1
-// #  define RIGHT 2
-// #  define LEFT 0
-// #  define ESC 53
 # endif
 
 typedef struct t_player_data_mlx {
@@ -66,7 +60,7 @@ void	move_up(t_data *mew);
 int		load_map(t_data *mew, char **argv);
 size_t	count_to_new_line(const char *str);
 int		check_mewmap(t_data *mew);
-void	loop_map(t_data *mew);
+int		loop_map(t_data *mew);
 int		wall_check(t_data mew);
 int		movement_count(t_data *mew);
 int		keyboard(int key, t_data *mew);
@@ -76,5 +70,6 @@ void	put_wall_img(t_data mew, int x, int y);
 void	put_collectible_img(t_data mew, int x, int y);
 void	put_player_img(t_data mew, int x, int y);
 void	put_enemy_img(t_data mew, int x, int y);
+int		line_len(t_data *mew, char *line, int index, int i);
 
 #endif

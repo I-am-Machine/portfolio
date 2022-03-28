@@ -5,16 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: bexner <bexner@student.42wolfsburg.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/10/22 15:24:00 by cdahlhof          #+#    #+#              #
-#    Updated: 2022/02/22 23:11:55 by bexner           ###   ########.fr        #
+#    Created: 2021/10/22 15:24:00 by bexner            #+#    #+#              #
+#    Updated: 2022/03/28 13:54:45 by bexner           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-SRC = so_long.c get_next_line.c get_next_line_utils.c map.c player.c movement.c images.c ft_memmove.c
+SRC = so_long.c get_next_line.c get_next_line_utils.c map.c player.c movement.c images.c ft_memmove_line_len.c
 
-OBJ =	so_long.o get_next_line.o get_next_line_utils.o map.o player.o movement.o images.o ft_memmove.o
+OBJ =	so_long.o get_next_line.o get_next_line_utils.o map.o player.o movement.o images.o ft_memmove_line_len.o
 
 CC = gcc
 

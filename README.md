@@ -1,4 +1,4 @@
-# portfolio
+# Portfolio
 I do have Experience the programming languages:
 C and Lua
 
